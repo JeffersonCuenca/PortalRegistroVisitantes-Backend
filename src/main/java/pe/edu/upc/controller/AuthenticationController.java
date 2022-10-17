@@ -1,5 +1,7 @@
 package pe.edu.upc.controller;
 
+import java.security.Principal;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -8,6 +10,7 @@ import org.springframework.security.authentication.DisabledException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -15,6 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 import pe.edu.upc.config.JwtUtil;
 import pe.edu.upc.entities.JwtRequest;
 import pe.edu.upc.entities.JwtResponse;
+import pe.edu.upc.entities.Usuario;
 import pe.edu.upc.serviceimpl.UserDetailsServiceImpl;
 
 @RestController
@@ -55,6 +59,11 @@ public class AuthenticationController {
 			// TODO: handle exception
 			throw new Exception("Credenciales invalidas " + badCredentialsException.getMessage());
 		}
+	}
+	
+	@GetMapping("/usuario-actual")
+	public Usuario obtenerUsuarioActual(Principal principal) {
+		return (Usuario) this.userDetailsService.loadUserByUsername(principal.getName());	
 	}
 	
 }
