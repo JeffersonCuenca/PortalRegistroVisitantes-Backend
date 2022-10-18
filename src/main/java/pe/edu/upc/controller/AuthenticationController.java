@@ -19,6 +19,7 @@ import pe.edu.upc.config.JwtUtil;
 import pe.edu.upc.entities.JwtRequest;
 import pe.edu.upc.entities.JwtResponse;
 import pe.edu.upc.entities.Usuario;
+import pe.edu.upc.exceptions.UsuarioNotFoundException;
 import pe.edu.upc.serviceimpl.UserDetailsServiceImpl;
 
 @RestController
@@ -38,7 +39,7 @@ public class AuthenticationController {
 	public ResponseEntity<?> generarToken(@RequestBody JwtRequest jwtRequest) throws Exception {
 		try {
 			autenticar(jwtRequest.getUsername(),jwtRequest.getPassword());
-		} catch (Exception e) {
+		} catch (UsuarioNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 			throw new Exception("Usuario no encontrado");

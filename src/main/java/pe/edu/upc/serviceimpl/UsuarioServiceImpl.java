@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import pe.edu.upc.entities.Usuario;
 import pe.edu.upc.entities.UsuarioRol;
+import pe.edu.upc.exceptions.UsuarioFoundException;
 import pe.edu.upc.repositories.IRolRepository;
 import pe.edu.upc.repositories.IUsuarioRepository;
 import pe.edu.upc.serviceinterface.IUsuarioServiceinterface;
@@ -26,7 +27,7 @@ public class UsuarioServiceImpl implements IUsuarioServiceinterface{
 		Usuario usuarioLocal = UsuarioRepository.findByUsername(usuario.getUsername());
 		if(usuarioLocal != null) {
 			System.out.println("El usuario ya existe");
-			throw new Exception("El usuario ya esta presente");
+			throw new UsuarioFoundException("El usuario ya esta presente");
 		}
 		else {
 			for(UsuarioRol usuarioRol:usuarioRoles) {
