@@ -16,12 +16,22 @@ public class AreaServiceImpl implements IAreaServiceInterface{
 	@Autowired
 	private IAreaRepository areaRepository;
 
-	@Override
+	/*@Override
 	public Area registrarArea(Area area) {
 		// TODO Auto-generated method stub
 		return areaRepository.save(area);
-	}
+	}*/
 
+	@Override
+	public Integer registrarArea(Area area) {
+		// TODO Auto-generated method stub
+		int rpta = areaRepository.areaExistente(area.getNombreArea());
+		if (rpta == 0) {
+			areaRepository.save(area);
+		}
+		return rpta;
+	}
+	
 	@Override
 	public Area actualizarArea(Area area) {
 		// TODO Auto-generated method stub
@@ -48,5 +58,4 @@ public class AreaServiceImpl implements IAreaServiceInterface{
 		
 		areaRepository.delete(area);
 	}
-
 }
