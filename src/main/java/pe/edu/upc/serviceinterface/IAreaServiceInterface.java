@@ -6,7 +6,9 @@ import pe.edu.upc.entities.Area;
 
 public interface IAreaServiceInterface {
 	
-	Area registrarArea(Area area);
+	//Area registrarArea(Area area);
+	
+	public Integer registrarArea(Area area);
 	
 	Area actualizarArea(Area area);
 	

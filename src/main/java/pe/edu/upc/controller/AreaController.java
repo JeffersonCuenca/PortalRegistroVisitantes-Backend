@@ -23,9 +23,19 @@ public class AreaController {
 	@Autowired
 	private IAreaServiceInterface areaServiceInterface;
 	
-	@PostMapping("/new")
+	/*@PostMapping("/new")
 	public ResponseEntity<Area> registrarArea(@RequestBody Area area){
 		return ResponseEntity.ok(areaServiceInterface.registrarArea(area));
+	}*/
+	
+	@SuppressWarnings("unchecked")
+	@PostMapping("/new")
+	public ResponseEntity<Integer> registrarArea(@RequestBody Area area){
+		int rpta = areaServiceInterface.registrarArea(area);
+		if(rpta > 0) {
+			return (ResponseEntity<Integer>) ResponseEntity.badRequest();
+		}
+		return ResponseEntity.ok(rpta);
 	}
 	
 	@PutMapping("/update")
