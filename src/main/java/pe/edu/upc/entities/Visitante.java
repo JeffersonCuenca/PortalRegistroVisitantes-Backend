@@ -7,7 +7,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
-import javax.persistence.PrePersist;
 import javax.persistence.Table;
 
 import org.springframework.lang.Nullable;
@@ -106,14 +105,4 @@ public class Visitante {
 	public void setArea(Area area) {
 		this.area = area;
 	}
-
-	/*@PrePersist
-	public void asignarFechaHoraIngreso() {
-		fechaHoraIngreso = LocalDateTime.now();
-	}
-	
-	@PrePersist
-	public void asignarFechaHoraSalida() {
-		fechaHoraSalida = LocalDateTime.now();
-	}*/
 }
