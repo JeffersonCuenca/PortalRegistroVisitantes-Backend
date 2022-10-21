@@ -36,6 +36,12 @@ public class VisitanteController {
 		return ResponseEntity.ok(visitanteServiceInterface.actualizarVisitante(visitante));
 	}
 	
+	@PutMapping("/updateSalida")
+	public ResponseEntity<Visitante> actualizarVisitanteSalida(@RequestBody Visitante visitante){
+		visitante.setFechaHoraSalida(LocalDateTime.now());
+		return ResponseEntity.ok(visitanteServiceInterface.actualizarVisitante(visitante));
+	}
+	
 	@GetMapping("/list")
 	public ResponseEntity<?> listarVisitantes(){
 		return ResponseEntity.ok(visitanteServiceInterface.obtenerVisitantes());
