@@ -1,5 +1,7 @@
 package pe.edu.upc.controller;
 
+import java.time.LocalDateTime;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -25,6 +27,7 @@ public class VisitanteController {
 	
 	@PostMapping("/new")
 	public ResponseEntity<Visitante> registrarVisitante(@RequestBody Visitante visitante){
+		visitante.setFechaHoraIngreso(LocalDateTime.now());
 		return ResponseEntity.ok(visitanteServiceInterface.registrarVisitante(visitante));
 	}
 	
