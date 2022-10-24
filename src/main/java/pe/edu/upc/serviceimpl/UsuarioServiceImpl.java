@@ -1,5 +1,6 @@
 package pe.edu.upc.serviceimpl;
 
+import java.util.LinkedHashSet;
 import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -49,6 +50,18 @@ public class UsuarioServiceImpl implements IUsuarioServiceinterface{
 	public void eliminarUsuario(Long usuarioId) {
 		// TODO Auto-generated method stub
 		UsuarioRepository.deleteById(usuarioId);
+	}
+
+	@Override
+	public Usuario actualizarUsuario(Usuario usuario) {
+		// TODO Auto-generated method stub
+		return UsuarioRepository.save(usuario);
+	}
+
+	@Override
+	public Set<Usuario> obtenerUsuarios() {
+		// TODO Auto-generated method stub
+		return new LinkedHashSet<>(UsuarioRepository.findAll());
 	}
 
 }

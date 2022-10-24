@@ -38,12 +38,12 @@ public class AreaController {
 		return ResponseEntity.ok(rpta);
 	}
 	
-	/*@PutMapping("/update")
+	@PutMapping("/update")
 	public ResponseEntity<Area> actualizaArea(@RequestBody Area area){
 		return ResponseEntity.ok(areaServiceInterface.actualizarArea(area));
-	}*/
+	}
 	
-	@SuppressWarnings("unchecked")
+	/*@SuppressWarnings("unchecked")
 	@PutMapping("/update")
 	public ResponseEntity<Integer> actualizaArea(@RequestBody Area area){
 		int rpta = areaServiceInterface.actualizarArea(area);
@@ -51,7 +51,7 @@ public class AreaController {
 			return (ResponseEntity<Integer>) ResponseEntity.badRequest();
 		}
 		return ResponseEntity.ok(rpta);
-	}
+	}*/
 	
 	@GetMapping("/list")
 	public ResponseEntity<?> listarAreas(){
