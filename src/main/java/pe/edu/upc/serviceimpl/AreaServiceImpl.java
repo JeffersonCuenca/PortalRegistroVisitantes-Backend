@@ -32,13 +32,13 @@ public class AreaServiceImpl implements IAreaServiceInterface{
 		return rpta;
 	}
 	
-	/*@Override
+	@Override
 	public Area actualizarArea(Area area) {
 		// TODO Auto-generated method stub
 		return areaRepository.save(area);
-	}*/
+	}
 
-	@Override
+	/*@Override
 	public Integer actualizarArea(Area area) {
 		// TODO Auto-generated method stub
 		int rpta = areaRepository.areaExistente(area.getNombreArea());
@@ -46,7 +46,7 @@ public class AreaServiceImpl implements IAreaServiceInterface{
 			areaRepository.save(area);
 		}
 		return rpta;
-	}
+	}*/
 	
 	@Override
 	public Set<Area> obtenerAreas() {

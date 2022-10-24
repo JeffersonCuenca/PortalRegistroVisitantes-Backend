@@ -9,6 +9,10 @@ public interface IUsuarioServiceinterface {
 	
 	public Usuario registrarUsuario(Usuario usuario, Set<UsuarioRol> usuarioRoles) throws Exception;
 	
+	Usuario actualizarUsuario(Usuario usuario);
+	
+	Set<Usuario> obtenerUsuarios();
+	
 	public Usuario obtenerUsuario(String dniu);
 	
 	public void eliminarUsuario(Long usuarioId);

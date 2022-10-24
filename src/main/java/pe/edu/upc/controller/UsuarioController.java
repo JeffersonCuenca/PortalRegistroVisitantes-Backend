@@ -4,12 +4,14 @@ import java.util.HashSet;
 import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -49,16 +51,26 @@ public class UsuarioController {
 		return UsuarioServiceInterface.registrarUsuario(usuario, usuarioRoles);
 	}
 	
-	@GetMapping("/{username}")
-	public Usuario obtenerUsuario(@PathVariable("username") String username) {
+	@PutMapping("/update")
+	public ResponseEntity<Usuario> actualizaUsuario(@RequestBody Usuario usuario){
+		return ResponseEntity.ok(UsuarioServiceInterface.actualizarUsuario(usuario));
+	}
+	
+	@GetMapping("/list")
+	public ResponseEntity<?> listarUsuarios(){
+		return ResponseEntity.ok(UsuarioServiceInterface.obtenerUsuarios());
+	}
+	
+	@GetMapping("/list/{username}")
+	public Usuario listarUsuario(@PathVariable("username") String username) {
 		
 		return UsuarioServiceInterface.obtenerUsuario(username);
 		
 	}
 	
-	@DeleteMapping("/{usuarioId}")
-	public void eliminarUsuario(@PathVariable("usuarioId") Long usuarioId) {
-		UsuarioServiceInterface.eliminarUsuario(usuarioId);
+	@DeleteMapping("/delete/{usuarioId}")
+	public void eliminarUsuario(@PathVariable("id") Long id) {
+		UsuarioServiceInterface.eliminarUsuario(id);
 	}
 
 }

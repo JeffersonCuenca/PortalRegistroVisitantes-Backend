@@ -10,9 +10,9 @@ public interface IAreaServiceInterface {
 	
 	public Integer registrarArea(Area area);
 	
-	//Area actualizarArea(Area area);
+	Area actualizarArea(Area area);
 	
-	public Integer actualizarArea(Area area);
+	//public Integer actualizarArea(Area area);
 	
 	Set<Area> obtenerAreas();
 	

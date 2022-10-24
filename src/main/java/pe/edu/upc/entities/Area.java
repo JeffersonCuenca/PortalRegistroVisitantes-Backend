@@ -15,6 +15,8 @@ public class Area {
 	private Long id;
 	
 	private String nombreArea;
+	
+	private String descripcionArea;
 
 	public Area() {
 		super();
@@ -25,6 +27,14 @@ public class Area {
 		super();
 		this.id = id;
 		this.nombreArea = nombreArea;
+	}
+
+	public String getDescripcionArea() {
+		return descripcionArea;
+	}
+
+	public void setDescripcionArea(String descripcionArea) {
+		this.descripcionArea = descripcionArea;
 	}
 
 	public Long getId() {
