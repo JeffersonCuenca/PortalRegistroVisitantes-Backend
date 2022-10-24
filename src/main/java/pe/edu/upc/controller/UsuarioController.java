@@ -39,7 +39,7 @@ public class UsuarioController {
 		
 		Set<UsuarioRol> usuarioRoles = new HashSet<>();
 		
-		Rol rol = new Rol();
+		Rol rol = new Rol();	
 		rol.setRolId(2L);
 		rol.setRolNombre("USUARIO");
 		
@@ -68,7 +68,7 @@ public class UsuarioController {
 		
 	}
 	
-	@DeleteMapping("/delete/{usuarioId}")
+	@DeleteMapping("/delete/{id}")
 	public void eliminarUsuario(@PathVariable("id") Long id) {
 		UsuarioServiceInterface.eliminarUsuario(id);
 	}
