@@ -1,6 +1,7 @@
 package pe.edu.upc.controller;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
+import java.time.LocalTime;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -27,7 +28,9 @@ public class VisitanteController {
 	
 	@PostMapping("/new")
 	public ResponseEntity<Visitante> registrarVisitante(@RequestBody Visitante visitante){
-		visitante.setFechaHoraIngreso(LocalDateTime.now());
+		//visitante.setFechaHoraIngreso(LocalDateTime.now());
+		visitante.setFechaIngreso(LocalDate.now());
+		visitante.setHoraIngreso(LocalTime.now());
 		return ResponseEntity.ok(visitanteServiceInterface.registrarVisitante(visitante));
 	}
 	
@@ -38,7 +41,9 @@ public class VisitanteController {
 	
 	@PutMapping("/updateSalida")
 	public ResponseEntity<Visitante> actualizarVisitanteSalida(@RequestBody Visitante visitante){
-		visitante.setFechaHoraSalida(LocalDateTime.now());
+		//visitante.setFechaHoraSalida(LocalDateTime.now());
+		visitante.setFechaSalida(LocalDate.now());
+		visitante.setHoraSalida(LocalTime.now());
 		return ResponseEntity.ok(visitanteServiceInterface.actualizarVisitante(visitante));
 	}
 	
