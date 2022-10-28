@@ -10,6 +10,8 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 @Entity
 @Table(name = "visitantes")
 public class Visitante {
@@ -28,8 +30,10 @@ public class Visitante {
 	
 	//private LocalDateTime fechaHoraSalida;
 	
+	@DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
 	private LocalDate fechaIngreso;
 	
+	@DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
 	private LocalDate fechaSalida;
 	
 	private LocalTime horaIngreso;

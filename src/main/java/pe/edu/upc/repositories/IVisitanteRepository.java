@@ -6,8 +6,17 @@ import pe.edu.upc.entities.Visitante;
 
 public interface IVisitanteRepository extends JpaRepository<Visitante, Long>{
 	
-	/*select *
-	from visitantes
-	where fecha_hora_ingreso between '20221021 00:00:00' and '20221021 23:59:59'*/
+	/*@Query("SELECT v.nombreVisitante, v.apellidoVisitante, v.dniVisitante, a.nombreArea, v.fechaIngreso,v.horaIngreso, v.fechaSalida, v.horaSalida "
+		 + "FROM Visitante v JOIN Area a ON v.area = a.id "
+		 + "WHERE LOWER(v.apellidoVisitante)=:apellido OR UPPER(v.apellidoVisitante)=:apellido OR v.apellidoVisitante=:apellido AND v.fechaSalida IS NOT NULL "
+		 + "ORDER BY v.fechaIngreso ASC ")
+	Optional<String> findByLastname(String apellido);
+	
+	@Query("SELECT v.nombreVisitante, v.apellidoVisitante, v.dniVisitante, a.nombreArea, v.fechaIngreso,v.horaIngreso, v.fechaSalida, v.horaSalida "
+			 + "FROM Visitante v JOIN Area a ON v.area = a.id "
+			 + "WHERE v.fechaIngreso BETWEEN :fechaInicio AND :fechaFin AND v.fechaSalida IS NOT NULL "
+			 + "ORDER BY v.fechaIngreso ASC ")*/
+	
+	
 
 }

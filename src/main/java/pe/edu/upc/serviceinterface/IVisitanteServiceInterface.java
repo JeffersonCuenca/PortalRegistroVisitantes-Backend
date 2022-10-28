@@ -1,7 +1,12 @@
 package pe.edu.upc.serviceinterface;
 
+import java.io.IOException;
+import java.sql.SQLException;
+import java.util.Map;
 import java.util.Set;
 
+import net.sf.jasperreports.engine.JRException;
+import pe.edu.upc.entities.ReporteJasperVisitantes;
 import pe.edu.upc.entities.Visitante;
 
 public interface IVisitanteServiceInterface {
@@ -15,5 +20,7 @@ public interface IVisitanteServiceInterface {
 	Visitante obtenerVisitante(Long id);
 	
 	void eliminarVisitante(Long id);
+	
+	ReporteJasperVisitantes reporteJasperVisitantes(Map<String, Object> params) throws JRException, IOException, SQLException;
 
 }
