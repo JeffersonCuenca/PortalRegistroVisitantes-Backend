@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.sql.SQLException;
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -40,6 +41,7 @@ public class VisitanteController {
 	public ResponseEntity<Visitante> registrarVisitante(@RequestBody Visitante visitante){
 		//visitante.setFechaHoraIngreso(LocalDateTime.now());
 		visitante.setFechaIngreso(LocalDate.now());
+		visitante.setFechaIngresoString(LocalDate.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd")));
 		visitante.setHoraIngreso(LocalTime.now());
 		return ResponseEntity.ok(visitanteServiceInterface.registrarVisitante(visitante));
 	}
@@ -53,6 +55,7 @@ public class VisitanteController {
 	public ResponseEntity<Visitante> actualizarVisitanteSalida(@RequestBody Visitante visitante){
 		//visitante.setFechaHoraSalida(LocalDateTime.now());
 		visitante.setFechaSalida(LocalDate.now());
+		visitante.setFechaSalidaString(LocalDate.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd")));
 		visitante.setHoraSalida(LocalTime.now());
 		return ResponseEntity.ok(visitanteServiceInterface.actualizarVisitante(visitante));
 	}
