@@ -36,6 +36,10 @@ public class Visitante {
 	@DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
 	private LocalDate fechaSalida;
 	
+	private String fechaIngresoString;
+	
+	private String fechaSalidaString;
+	
 	private LocalTime horaIngreso;
 	
 	private LocalTime horaSalida;
@@ -49,7 +53,8 @@ public class Visitante {
 	}
 
 	public Visitante(Long id, String nombreVisitante, String apellidoVisitante, String dniVisitante,
-			LocalDate fechaIngreso, LocalDate fechaSalida, LocalTime horaIngreso, LocalTime horaSalida, Area area) {
+			LocalDate fechaIngreso, LocalDate fechaSalida, String fechaIngresoString, String fechaSalidaString,
+			LocalTime horaIngreso, LocalTime horaSalida, Area area) {
 		super();
 		this.id = id;
 		this.nombreVisitante = nombreVisitante;
@@ -57,6 +62,8 @@ public class Visitante {
 		this.dniVisitante = dniVisitante;
 		this.fechaIngreso = fechaIngreso;
 		this.fechaSalida = fechaSalida;
+		this.fechaIngresoString = fechaIngresoString;
+		this.fechaSalidaString = fechaSalidaString;
 		this.horaIngreso = horaIngreso;
 		this.horaSalida = horaSalida;
 		this.area = area;
@@ -92,8 +99,8 @@ public class Visitante {
 
 	public void setDniVisitante(String dniVisitante) {
 		this.dniVisitante = dniVisitante;
-	}	
-	
+	}
+
 	public LocalDate getFechaIngreso() {
 		return fechaIngreso;
 	}
@@ -108,6 +115,22 @@ public class Visitante {
 
 	public void setFechaSalida(LocalDate fechaSalida) {
 		this.fechaSalida = fechaSalida;
+	}
+
+	public String getFechaIngresoString() {
+		return fechaIngresoString;
+	}
+
+	public void setFechaIngresoString(String fechaIngresoString) {
+		this.fechaIngresoString = fechaIngresoString;
+	}
+
+	public String getFechaSalidaString() {
+		return fechaSalidaString;
+	}
+
+	public void setFechaSalidaString(String fechaSalidaString) {
+		this.fechaSalidaString = fechaSalidaString;
 	}
 
 	public LocalTime getHoraIngreso() {
@@ -133,4 +156,5 @@ public class Visitante {
 	public void setArea(Area area) {
 		this.area = area;
 	}
+	
 }
