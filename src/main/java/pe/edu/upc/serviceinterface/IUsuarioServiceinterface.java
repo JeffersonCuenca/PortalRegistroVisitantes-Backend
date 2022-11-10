@@ -7,7 +7,7 @@ import pe.edu.upc.entities.UsuarioRol;
 
 public interface IUsuarioServiceinterface {
 	
-	public Usuario registrarUsuario(Usuario usuario, Set<UsuarioRol> usuarioRoles) throws Exception;
+	public Usuario registrarUsuario(Usuario usuario) throws Exception;
 	
 	Usuario actualizarUsuario(Usuario usuario);
 	
