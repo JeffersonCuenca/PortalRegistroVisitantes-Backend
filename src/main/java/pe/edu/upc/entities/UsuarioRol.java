@@ -13,6 +13,8 @@ public class UsuarioRol {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long usuarioRolId;
+    
+    private Long usuarioYaAsignado;
 
     @ManyToOne(fetch = FetchType.EAGER)
     private Usuario usuario;
@@ -20,7 +22,15 @@ public class UsuarioRol {
     @ManyToOne
     private Rol rol;
 
-    public Long getUsuarioRolId() {
+    public Long getUsuarioYaAsignado() {
+		return usuarioYaAsignado;
+	}
+
+	public void setUsuarioYaAsignado(Long usuarioYaAsignado) {
+		this.usuarioYaAsignado = usuarioYaAsignado;
+	}
+
+	public Long getUsuarioRolId() {
         return usuarioRolId;
     }
 
