@@ -37,6 +37,9 @@ public class UsuarioController {
 	
 	@PutMapping("/update")
 	public ResponseEntity<Usuario> actualizaUsuario(@RequestBody Usuario usuario){
+		
+		//usuario.setPassword(this.bCryptPasswordEncoder.encode(usuario.getPassword()));
+		
 		return ResponseEntity.ok(UsuarioServiceInterface.actualizarUsuario(usuario));
 	}
 	
