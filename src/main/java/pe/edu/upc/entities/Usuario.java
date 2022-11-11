@@ -17,6 +17,9 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+
+import pe.edu.upc.controller.CustomAuthorityDeserializer;
 
 @Entity
 @Table(name = "usuarios")
@@ -125,6 +128,7 @@ public class Usuario implements UserDetails{
 		this.usuarioRoles = usuarioRoles;
 	}
 
+	@JsonDeserialize(using = CustomAuthorityDeserializer.class)
 	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {
 		// TODO Auto-generated method stub
