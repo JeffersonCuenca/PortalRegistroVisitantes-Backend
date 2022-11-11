@@ -9,6 +9,12 @@ public interface IUsuarioRolServiceInterface {
 	
 	UsuarioRol registrarUsuarioRol(UsuarioRol usuarioRol) throws UsuarioFoundException;
 	
+	UsuarioRol actualizarUsuarioRol(UsuarioRol usuarioRol);
+	
 	Set<UsuarioRol> obtenerUsuariosRoles();
-
+	
+	UsuarioRol obtenerUsuarioRol(Long id);
+	
+	void eliminarUsuarioRol(Long id);
+	
 }

@@ -3,7 +3,6 @@ package pe.edu.upc.serviceinterface;
 import java.util.Set;
 
 import pe.edu.upc.entities.Usuario;
-import pe.edu.upc.entities.UsuarioRol;
 
 public interface IUsuarioServiceinterface {
 	

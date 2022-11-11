@@ -12,7 +12,7 @@ public class UsuarioRol {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long usuarioRolId;
+    private Long id;
     
     private Long usuarioYaAsignado;
 
@@ -30,12 +30,12 @@ public class UsuarioRol {
 		this.usuarioYaAsignado = usuarioYaAsignado;
 	}
 
-	public Long getUsuarioRolId() {
-        return usuarioRolId;
+	public Long getId() {
+        return id;
     }
 
-    public void setUsuarioRolId(Long usuarioRolId) {
-        this.usuarioRolId = usuarioRolId;
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public Usuario getUsuario() {
