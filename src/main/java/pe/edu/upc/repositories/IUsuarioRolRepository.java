@@ -6,6 +6,6 @@ import pe.edu.upc.entities.UsuarioRol;
 
 public interface IUsuarioRolRepository extends JpaRepository<UsuarioRol, Long>{
 	
-	public UsuarioRol findByUsuarioRolId(Long id);
+	public UsuarioRol findByUsuarioYaAsignado(Long id);
 	
 }

@@ -23,6 +23,7 @@ public class UsuarioRolController {
 	
 	@PostMapping("/new")
 	public ResponseEntity<UsuarioRol> registrarUsuarioRol(@RequestBody UsuarioRol usuarioRol) throws UsuarioFoundException {
+		usuarioRol.setUsuarioYaAsignado(usuarioRol.getUsuario().getId());
 		return ResponseEntity.ok(usuarioRolServiceInterface.registrarUsuarioRol(usuarioRol));
 	}
 	

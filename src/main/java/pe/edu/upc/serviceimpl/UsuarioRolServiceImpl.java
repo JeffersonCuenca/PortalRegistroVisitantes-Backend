@@ -20,7 +20,7 @@ public class UsuarioRolServiceImpl implements IUsuarioRolServiceInterface {
 	@Override
 	public UsuarioRol registrarUsuarioRol(UsuarioRol usuarioRol) throws UsuarioFoundException {
 		// TODO Auto-generated method stub
-		UsuarioRol usuarioLocal = usuarioRolRepository.findByUsuarioRolId(usuarioRol.getUsuario().getId());
+		UsuarioRol usuarioLocal = usuarioRolRepository.findByUsuarioYaAsignado(usuarioRol.getUsuarioYaAsignado());
 		if(usuarioLocal != null) {
 			System.out.println("El usuario ya tiene asignado un rol");
 			throw new UsuarioFoundException("El usuario ya tiene asignado un rol");
