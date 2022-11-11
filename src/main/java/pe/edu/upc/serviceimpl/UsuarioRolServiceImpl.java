@@ -32,8 +32,29 @@ public class UsuarioRolServiceImpl implements IUsuarioRolServiceInterface {
 	}
 
 	@Override
+	public UsuarioRol actualizarUsuarioRol(UsuarioRol usuarioRol) {
+		// TODO Auto-generated method stub
+		return usuarioRolRepository.save(usuarioRol);
+	}
+	
+	@Override
 	public Set<UsuarioRol> obtenerUsuariosRoles() {
 		// TODO Auto-generated method stub
 		return new LinkedHashSet<>(usuarioRolRepository.findAll());
+	}
+	
+	@Override
+	public UsuarioRol obtenerUsuarioRol(Long id) {
+		// TODO Auto-generated method stub
+		return usuarioRolRepository.findById(id).get();
+	}
+
+	@Override
+	public void eliminarUsuarioRol(Long id) {
+		// TODO Auto-generated method stub
+		UsuarioRol usuarioRol = new UsuarioRol();
+		usuarioRol.setId(id);
+		
+		usuarioRolRepository.delete(usuarioRol);
 	}	
 }
