@@ -38,13 +38,20 @@ public class UsuarioController {
 	@PutMapping("/update")
 	public ResponseEntity<Usuario> actualizaUsuario(@RequestBody Usuario usuario){
 		
-		//usuario.setPassword(this.bCryptPasswordEncoder.encode(usuario.getPassword()));
+		return ResponseEntity.ok(UsuarioServiceInterface.actualizarUsuario(usuario));
+	}
+	
+	@PutMapping("/updatePassword")
+	public ResponseEntity<Usuario> actualizarContrasenia(@RequestBody Usuario usuario) {
+		
+		usuario.setPassword(this.bCryptPasswordEncoder.encode(usuario.getPassword()));
 		
 		return ResponseEntity.ok(UsuarioServiceInterface.actualizarUsuario(usuario));
 	}
 	
 	@GetMapping("/list")
 	public ResponseEntity<?> listarUsuarios(){
+		
 		return ResponseEntity.ok(UsuarioServiceInterface.obtenerUsuarios());
 	}
 	
@@ -57,6 +64,7 @@ public class UsuarioController {
 	
 	@DeleteMapping("/delete/{id}")
 	public void eliminarUsuario(@PathVariable("id") Long id) {
+		
 		UsuarioServiceInterface.eliminarUsuario(id);
 	}
 
